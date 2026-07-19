@@ -239,7 +239,7 @@
                 <span>|</span>
                 <span>Compliance Code: 2026-X4</span>
                 <span>|</span>
-                <!-- THE SECRET STEALTH BUTTON INTERFACE -->
+                <!-- FIXED ID: Match target call from event listener string -->
                 <a id="helpButton" class="stealth-trigger">System Support Help Documentation</a>
             </footer>
         </main>
@@ -252,7 +252,7 @@
         document.getElementById('helpButton').addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Alter tab title and icon immediately to continue look
+            // Alter tab title immediately to preserve background profile
             document.title = "System Documentation";
             
             // Cleanly remove the educational facade layer from sight
@@ -271,4 +271,4 @@
                 <main style="max-width: 800px; margin: 0 auto; padding: 40px 20px; text-align: center; font-family: Arial, sans-serif; color: #ffffff;">
                     <h1 style="font-size: 64px; color: #ff4757; margin: 0 0 10px 0; font-weight: bold; letter-spacing: -1px;">ROXIN</h1>
                     <p style="color: #b3b3b3; font-size: 18px; line-height: 1.6; margin-bottom: 30px;">
-Use code with caution.Instant access to web-based browser games, proxies, and developer utilities completely unblocked.Launch GamesOpen Proxy`;// Dynamically attach and fetch your global navigation bar template instantlyfetch('templates/navbar.html').then(res => res.text()).then(data => {document.getElementById('navbar-container').innerHTML = data;}).catch(err => console.error("Stealth layer navigation load exception:", err));});
+Use code with caution.Instant access to web-based browser games, proxies, and developer utilities completely unblocked.Launch GamesOpen Proxy`;// Dynamically attach and fetch your global navigation bar template instantly from root foldersfetch('templates/navbar.html').then(res => res.text()).then(data => {document.getElementById('navbar-container').innerHTML = data;}).catch(err => console.error("Stealth layer navigation load exception:", err));});
