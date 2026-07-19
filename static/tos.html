@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Terms of Service | Roxin</title>
+    
+    <!-- STEP OUT: Uses ../ to leave static and find the separate templates folder -->
+    <script>
+        fetch('../templates/meta.html')
+            .then(res => res.text())
+            .then(data => document.head.insertAdjacentHTML('beforeend', data));
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .tos-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        h1 {
+            color: #ff4757;
+            font-size: 32px;
+            border-bottom: 2px solid #1a1a1a;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #ffffff;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        p, li {
+            color: #b3b3b3;
+            font-size: 15px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .last-updated {
+            font-style: italic;
+            color: #666666;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <main class="tos-container">
+        <h1>Terms of Service</h1>
+        <div class="last-updated">Last Updated: July 2026</div>
+
+        <section>
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing and using the Roxin platform, you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, please do not use our website or services.</p>
+        </section>
+
+        <section>
+            <h2>2. Description of Service</h2>
+            <p>Roxin provides users with access to an online portal of web-based browser games and utilities. All services are provided on an "as-is" and "as-available" basis. We reserve the right to modify, suspend, or discontinue any game or service at any time without notice.</p>
+        </section>
+
+        <section>
+            <h2>3. User Conduct</h2>
+            <p>You agree to use Roxin only for lawful purposes. You are strictly prohibited from:</p>
+            <ul>
+                <li>Attempting to disrupt, modify, or overload the platform infrastructure.</li>
+                <li>Using automated systems, bots, or scrapers to extract data or modify website features.</li>
+                <li>Exploiting software vulnerabilities within the hosted games or proxy utilities.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. Intellectual Property</h2>
+            <p>All brand assets, custom code fragments, and structural web configurations related to Roxin are the properties of their respective developers. Third-party games hosted on this portal remain the intellectual property of their original developers or publishers.</p>
+        </section>
+
+        <section>
+            <h2>5. Limitation of Liability</h2>
+            <p>Roxin, its developers, and contributors shall not be held liable for any data loss, performance delays, or technical disruptions resulting from the use or inability to use this platform.</p>
+        </section>
+    </main>
+
+    <script>
+        // STEP OUT: Uses ../ to leave static and find the separate templates folder
+        fetch('../templates/navbar.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('navbar-container').innerHTML = data);
+    </script>
+</body>
+</html>
