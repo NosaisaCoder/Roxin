@@ -1,0 +1,93 @@
+<!--WIP-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Downtime | Roxin</title>
+
+    <!-- STEP OUT: Uses ../ to leave static and find your separate templates folder -->
+    <script>
+        fetch('../templates/meta.html')
+            .then(res => res.text())
+            .then(data => document.head.insertAdjacentHTML('beforeend', data));
+    </script>
+
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .wip-badge {
+            background-color: #ff4757;
+            color: #ffffff;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .title {
+            font-size: 50px;
+            color: #ff4757;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #b3b3b3;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .link {
+            color: #ff4757;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- WIP Banner Notification -->
+    <div class="wip-badge">Work In Progress - Roxin Systems</div>
+
+    <div id="navbar-container"></div>
+
+    <div class="container centered">
+        <h1 class="title">Oh no!</h1>
+
+        <p class="description">
+            We slipped up! Roxin's servers are currently down and we are working hard to fix them!
+            <br><br>
+            For more information on the downtime join our 
+            <a href="https://discord.gg/YxZzZP6Dt" target="_blank" class="link">Discord server</a>.
+        </p>
+    </div>
+
+    <script>
+        // STEP OUT: Uses ../ to leave static and find your separate templates folder
+        fetch('../templates/navbar.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('navbar-container').innerHTML = data);
+    </script>
+</body>
+</html>
