@@ -1,0 +1,120 @@
+<!--WIP-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline | Roxin</title>
+
+    <!-- Load metadata template directly from the root templates directory -->
+    <script>
+        fetch('templates/meta.html')
+            .then(res => res.text())
+            .then(data => document.head.insertAdjacentHTML('beforeend', data));
+    </script>
+
+    <link rel="stylesheet" href="static/assets/css/main.css">
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .wip-badge {
+            background-color: #ff4757;
+            color: #ffffff;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .title {
+            font-size: 50px;
+            color: #ff4757;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #b3b3b3;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .link {
+            color: #ff4757;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- WIP Banner Notification -->
+    <div class="wip-badge">Work In Progress - Roxin Systems</div>
+
+    <div id="navbar-container"></div>
+
+    <div class="container centered">
+        <h1 class="title">Offline</h1>
+        <p class="description">
+            Looks like you are offline. Connect to the internet to regain complete access to Roxin.
+            <br><br>
+            Need assistance or status updates? Join our 
+            <a href="https://discord.gg" target="_blank" class="link">Discord Server</a>.
+        </p>
+    </div>
+
+    <script>
+        // Load Navbar from root templates folder
+        fetch('templates/navbar.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('navbar-container').innerHTML = data);
+
+        // App State and Automatic Reconnection Logic
+        try {
+            document.body.dataset.theme = JSON.parse(localStorage.getItem('settings')).theme || 'dark';
+        } catch {
+            document.body.dataset.theme = 'dark';
+            sessionStorage.setItem('settings', JSON.stringify({ theme: 'dark' }));
+        }
+
+        sessionStorage.setItem('wasoffline', !window.navigator.onLine);
+
+        if (sessionStorage.getItem('wasoffline') === 'true') {
+            sessionStorage.setItem('wasoffline', false);
+            // FIXED: Path targets your specific GitHub Pages repository subdirectory
+            window.location.replace('/Roxin/');
+        } else {
+            (async () => {
+                try {
+                    // FIXED: Fallback route adjusted to target root custom error handling page
+                    document.documentElement.innerHTML = await (await fetch('404.html')).text();
+                } catch (e) {
+                    console.error('Fallback navigation route failed:', e);
+                }
+            })();
+        }
+
+        // Auto-refresh instantly back to home page the moment internet returns
+        window.addEventListener('online', () => window.location.replace('/Roxin/'));
+    </script>
+</body>
+</html>
