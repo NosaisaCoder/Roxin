@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Unobtrusive tab title to look completely educational -->
+    <title>Student Portal | Dashboard</title>
+    
+    <style>
+        :root {
+            --bg-primary: #f4f6f9;
+            --panel-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #6c757d;
+            --border-color: #dee2e6;
+            --accent-blue: #007bff;
+            --accent-green: #28a745;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* Top navigation header */
+        .portal-header {
+            background-color: #1e293b;
+            color: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .portal-brand {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .user-profile {
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+
+        /* Dashboard layout structure */
+        .main-content {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .welcome-widget {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .welcome-widget h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .welcome-widget p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        /* Metrics grid rows */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        /* Grade sheets data matrix mapping */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 15px;
+        }
+
+        .data-table th {
+            color: var(--text-secondary);
+            font-weight: 500;
+            padding: 12px 8px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .data-table td {
+            padding: 14px 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .score-badge {
+            font-weight: 600;
+            color: var(--accent-green);
+        }
+
+        /* System footer with stealth switch mechanism */
+        .portal-footer {
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .stealth-trigger {
+            color: var(--text-secondary);
+            text-decoration: none;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        .stealth-trigger:hover {
+            color: var(--accent-blue);
+            text-decoration: underline;
+        }
+
+        /* Hidden dynamic injection zone */
+        #roxin-core-viewport {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #121212;
+            z-index: 99999;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PRIMARY EDUCATIONAL FACADE LAYER -->
+    <div id="facade-layer">
+        <header class="portal-header">
+            <div class="portal-brand">Apex Learning Management System</div>
+            <div class="user-profile">Account: Student ID 482019</div>
+        </header>
+
+        <main class="main-content">
+            <div class="welcome-widget">
+                <h1>Academic Overview Dashboard</h1>
+                <p>Current Academic Term: Fall Semester</p>
+            </div>
+
+            <div class="grid-container">
+                <!-- Course Performance Section -->
+                <div class="left-column">
+                    <div class="card">
+                        <div class="card-title">Active Course Enrollment Performance Metrics</div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Course Designation</th>
+                                    <th>Instructor</th>
+                                    <th>Period</th>
+                                    <th>Current Standing</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>AP English Literature and Composition</td>
+                                    <td>Dr. E. Harrison</td>
+                                    <td>Period 1</td>
+                                    <td class="score-badge">94.2% (A)</td>
+                                </tr>
+                                <tr>
+                                    <td>Advanced Algebraic Functions</td>
+                                    <td>Prof. M. Vance</td>
+                                    <td>Period 2</td>
+                                    <td class="score-badge" style="color: #e67e22;">88.7% (B+)</td>
+                                </tr>
+                                <tr>
+                                    <td>World History and Political Geography</td>
+                                    <td>Mrs. S. Mercer</td>
+                                    <td>Period 4</td>
+                                    <td class="score-badge">91.5% (A-)</td>
+                                </tr>
+                                <tr>
+                                    <td>Introductory Biochemistry Laboratory</td>
+                                    <td>Dr. R. Lin</td>
+                                    <td>Period 5</td>
+                                    <td class="score-badge">96.8% (A+)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Upcoming Assignments Section -->
+                <div class="right-column">
+                    <div class="card">
+                        <div class="card-title">Literature Syllabus Tracks</div>
+                        <p style="font-size: 14px; margin: 0 0 10px 0; font-weight: 500;">Reading Modules:</p>
+                        <ul style="font-size: 13px; color: var(--text-secondary); padding-left: 20px; line-height: 1.8;">
+                            <li>Analytical Review Essay - Submission Pending</li>
+                            <li>Context Reading Assignments: Chapters 12-16</li>
+                            <li>Library Research Sourcing Review</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="portal-footer">
+                <span>System Status: Operational</span>
+                <span>|</span>
+                <span>Compliance Code: 2026-X4</span>
+                <span>|</span>
+                <!-- THE SECRET STEALTH BUTTON INTERFACE -->
+                <a id="helpButton" class="stealth-trigger">System Support Help Documentation</a>
+            </footer>
+        </main>
+    </div>
+
+    <!-- DYNAMICALLY INJECTED UNBLOCKED SITE HUB VIEWPORT LAYER -->
+    <div id="roxin-core-viewport"></div>
+
+    <script>
+        document.getElementById('helpButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Alter tab title and icon immediately to continue look
+            document.title = "System Documentation";
+            
+            // Cleanly remove the educational facade layer from sight
+            document.getElementById('facade-layer').style.display = 'none';
+            
+            // Prepare and expose the container window
+            const coreWindow = document.getElementById('roxin-core-viewport');
+            coreWindow.style.display = 'block';
+            
+            // Inject your unblocked interface directly into the active tab instance
+            coreWindow.innerHTML = `
+                <div style="background-color: #ff4757; color: #ffffff; text-align: center; padding: 8px; font-weight: bold; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; font-family: Arial, sans-serif;">
+                    Work In Progress - Roxin Systems
+                </div>
+                <div id="navbar-container"></div>
+                <main style="max-width: 800px; margin: 0 auto; padding: 40px 20px; text-align: center; font-family: Arial, sans-serif; color: #ffffff;">
+                    <h1 style="font-size: 64px; color: #ff4757; margin: 0 0 10px 0; font-weight: bold; letter-spacing: -1px;">ROXIN</h1>
+                    <p style="color: #b3b3b3; font-size: 18px; line-height: 1.6; margin-bottom: 30px;">
+Use code with caution.Instant access to web-based browser games, proxies, and developer utilities completely unblocked.Launch GamesOpen Proxy`;// Dynamically attach and fetch your global navigation bar template instantlyfetch('templates/navbar.html').then(res => res.text()).then(data => {document.getElementById('navbar-container').innerHTML = data;}).catch(err => console.error("Stealth layer navigation load exception:", err));});
