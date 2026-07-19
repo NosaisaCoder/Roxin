@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="static/assets/css/main.css">
+    <title>Search |Roxin</title>
+
+    <!-- Load common metadata tags dynamically -->
+    <script>
+        fetch('templates/meta.html')
+            .then(res => res.text())
+            .then(data => document.head.insertAdjacentHTML('beforeend', data));
+    </script>
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="content">
+        <div class="container centered">
+            <h1 class="title">Proxy</h1>
+            <p class="proxyDescription">Search the web without restrictions</p>
+            
+            <form id="wpf">
+                <input class="proxyinput" type="text" id="query" placeholder="URL or Search Query" required />
+            </form>
+            <br>
+            <br>
+            <div class="centered">
+                <button onclick="joinDiscord()">Join Our Discord (more links)</button>
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <!-- Main dynamic script loader -->
+    <script src="static/assets/js/main.js" type="module"></script>
+    
+    <script>
+        // Load your navbar dynamically from templates folder
+        fetch('templates/navbar.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('navbar-container').innerHTML = data);
+
+        function joinDiscord() {
+            var url = "https://discord.gg/YxZzZP6Dt";
+            var input = document.getElementById('query');
+            input.value = url;
+            
+            // Automatically trigger the form submission after filling the text field
+            document.getElementById('wpf').dispatchEvent(new Event('submit'));
+        }
+    </script>
+</body>
+</html>
