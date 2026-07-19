@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Eruda Console (Loads first for error catching) -->
+    <script src="https://unpkg.com/eruda@latest/eruda.js"></script>
+    <script>eruda.init();</script>
+
+    <!-- Load Component Templates -->
+    <script>
+        // Load common metadata tags
+        fetch('/templates/meta.html')
+            .then(res => res.text())
+            .then(data => document.head.insertAdjacentHTML('beforeend', data));
+    </script>
+</head>
+<body>
+
+    <div id="navbar-container"></div>
+
+    <main class="dev-container">
+        <h1>🛠️ Roxin Development Sandbox</h1>
+        <p>Use the floating gear icon in the bottom-right corner to open the console, inspect elements, and track memory usage.</p>
+        
+        <!-- Game Testing Frame Placeholder -->
+        <div class="test-window">
+            <p>[ Game Test Window Template ]</p>
+        </div>
+    </main>
+
+    <script>
+        // Inject navbar template dynamically
+        fetch('/templates/navbar.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('navbar-container').innerHTML = data);
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        .dev-container {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .test-window {
+            margin-top: 30px;
+            height: 400px;
+            border: 2px dashed #ff4757;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1a1a1a;
+            border-radius: 8px;
+        }
+    </style>
+</body>
+</html>
